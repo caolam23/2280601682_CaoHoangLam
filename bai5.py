@@ -1,23 +1,18 @@
-def tinh_gio_lam():
-    try:
-        # Nhập giờ bắt đầu và kết thúc
-        gio_bat_dau = float(input("Nhập giờ bắt đầu (0-24): "))
-        gio_ket_thuc = float(input("Nhập giờ kết thúc (0-24): "))
-
-        # Kiểm tra hợp lệ
-        if 0 <= gio_bat_dau <= 24 and 0 <= gio_ket_thuc <= 24:
-            # Tính số giờ làm
-            if gio_ket_thuc >= gio_bat_dau:
-                gio_lam = gio_ket_thuc - gio_bat_dau
-            else:
-                # Trường hợp làm việc qua đêm (VD: 22h - 6h sáng hôm sau)
-                gio_lam = (24 - gio_bat_dau) + gio_ket_thuc  
-
-            print(f"Tổng số giờ làm: {gio_lam:.2f} giờ")
+def dem_so_lan_xuat_hien(lst):
+    count_dict = {}  
+    for item in lst:
+        if item in count_dict:
+            count_dict[item] += 1  # Nếu từ đã tồn tại, tăng số lần xuất hiện
         else:
-            print("Lỗi: Giờ nhập vào phải trong khoảng 0-24!")
+            count_dict[item] = 1  # Nếu từ chưa có, gán giá trị ban đầu là 1
+    return count_dict
 
-    except ValueError:
-        print("Lỗi: Vui lòng nhập số!")
+# Nhập danh sách từ người dùng
+input_string = input("Nhập danh sách các từ, cách nhau bằng dấu cách: ")
 
-tinh_gio_lam()
+# Tách các từ thành danh sách
+word_list = input_string.split()
+
+# Sử dụng hàm và in kết quả
+so_lan_xuat_hien = dem_so_lan_xuat_hien(word_list)
+print("Số lần xuất hiện của các phần tử:", so_lan_xuat_hien)

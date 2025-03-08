@@ -1,10 +1,15 @@
-# Tạo danh sách rỗng
-danh_sach = []
+# Hàm truy cập phần tử đầu và cuối của Tuple
+def truy_cap_phan_tu(tuple_data):
+    first_element = tuple_data[0]  
+    last_element = tuple_data[-1]
+    return first_element, last_element
 
-# Duyệt qua các số trong đoạn từ 2000 đến 3200
-for i in range(2000, 3201):  # 3201 để bao gồm 3200
-    if i % 7 == 0 and i % 5 != 0:  # Kiểm tra chia hết cho 7 và không phải bội số của 5
-        danh_sach.append(i)
+# Nhập tuple từ người dùng
+input_tuple = eval(input("Nhập tuple, ví dụ (1, 2, 3): "))  
 
-# In danh sách kết quả
-print(danh_sach)
+# Gọi hàm lấy phần tử đầu và cuối
+first, last = truy_cap_phan_tu(input_tuple)
+
+# In kết quả
+print("Phần tử đầu tiên:", first)
+print("Phần tử cuối cùng:", last)

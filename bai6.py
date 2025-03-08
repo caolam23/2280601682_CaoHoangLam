@@ -1,15 +1,16 @@
-def nhap_va_in_hoa():
-    print("Nhập các dòng văn bản (Nhấn Enter 2 lần để kết thúc):")
-    danh_sach_dong = []
+def xoa_phan_tu(dictionary, key):
+    if key in dictionary:
+        del dictionary[key]
+        return True
+    else:
+        return False
 
-    while True:
-        dong = input()  # Nhập từng dòng
-        if dong == "":  # Khi gặp dòng trống thì dừng
-            break
-        danh_sach_dong.append(dong.upper())  # Chuyển thành chữ in hoa và lưu vào danh sách
+# Sử dụng hàm và in kết quả
+my_dict = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+key_to_delete = 'b'
+result = xoa_phan_tu(my_dict, key_to_delete)
 
-    print("\nNội dung sau khi chuyển thành chữ in hoa:")
-    for dong in danh_sach_dong:
-        print(dong)
-
-nhap_va_in_hoa()
+if result:
+    print("Phần tử đã được xóa từ Dictionary:", my_dict)
+else:
+    print("Không tìm thấy phần tử cần xóa trong Dictionary.")
